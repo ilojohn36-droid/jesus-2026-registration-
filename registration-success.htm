@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration Successful — JESUS 2026</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =================================
+           REGISTRATION CODE
+        ================================= */
+
+        .registration-code-box {
+            margin-top: 18px;
+            padding: 15px;
+            text-align: center;
+
+            background: linear-gradient(
+                180deg,
+                #f8faff 0%,
+                #ffffff 100%
+            );
+
+            border: 1px solid #dbe5f3;
+            border-radius: 14px;
+        }
+
+        .registration-code-label {
+            display: block;
+
+            color: #d4a72c;
+
+            font-size: 9px;
+            font-weight: 800;
+
+            letter-spacing: 1.6px;
+
+            margin-bottom: 7px;
+        }
+
+        .registration-code-value {
+            display: block;
+
+            color: #063da5;
+
+            font-size: 17px;
+            font-weight: 900;
+
+            letter-spacing: 1.5px;
+
+            word-break: break-word;
+        }
+
+
+
+        /* =================================
+           BUTTONS
+        ================================= */
+
+        .copy-code-button,
+        .download-card-button {
+            width: 100%;
+
+            padding: 12px;
+
+            border: 1px solid #cbdaf5;
+            border-radius: 8px;
+
+            background: #eef4ff;
+
+            color: #063da5;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 0.7px;
+
+            cursor: pointer;
+
+            box-shadow: none;
+
+            transition: all 0.2s ease;
+        }
+
+        .copy-code-button {
+            margin-top: 11px;
+        }
+
+        .download-card-button {
+            margin-top: 14px;
+        }
+
+        .copy-code-button:hover,
+        .download-card-button:hover {
+            transform: translateY(-1px);
+
+            background: #e5efff;
+
+            box-shadow:
+                0 5px 12px rgba(6, 61, 165, 0.12);
+        }
+
+        .copy-code-button.copied,
+        .download-card-button.downloaded {
+            background: #eaf7ee;
+
+            border-color: #28a745;
+
+            color: #188038;
+        }
+
+        .copy-code-button:disabled,
+        .download-card-button:disabled {
+            cursor: wait;
+
+            opacity: 0.75;
+
+            transform: none;
+        }
+
+
+
+        /* =================================
+           DIGITAL REGISTRATION CARD
+        ================================= */
+
+        #registrationCard {
+            position: absolute;
+
+            left: -99999px;
+            top: 0;
+
+            width: 1000px;
+
+            padding: 48px;
+
+            box-sizing: border-box;
+
+            background:
+                radial-gradient(
+                    circle at 88% 10%,
+                    rgba(241, 212, 119, 0.22),
+                    transparent 24%
+                ),
+
+                radial-gradient(
+                    circle at 5% 95%,
+                    rgba(255, 255, 255, 0.07),
+                    transparent 25%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #02183f 0%,
+                    #063da5 52%,
+                    #031b4b 100%
+                );
+
+            color: #ffffff;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            border-radius: 30px;
+
+            overflow: hidden;
+        }
+
+
+
+        /* =================================
+           CARD INNER
+        ================================= */
+
+        .digital-card-inner {
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.25);
+
+            border-radius: 24px;
+
+            padding: 38px;
+
+            background:
+                rgba(255, 255, 255, 0.045);
+
+            position: relative;
+        }
+
+
+
+        /* =================================
+           GOLD TOP LINE
+        ================================= */
+
+        .digital-card-inner::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 5px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #f1d477,
+                    transparent
+                );
+
+            opacity: 0.9;
+        }
+
+
+
+        /* =================================
+           CARD HEADER
+        ================================= */
+
+        .digital-card-top {
+            position: relative;
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+            padding-top: 5px;
+        }
+
+
+
+        /* =================================
+           MEETING NAME
+        ================================= */
+
+        .digital-card-meeting {
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            opacity: 0.82;
+
+            margin-bottom: 19px;
+        }
+
+
+
+        /* =================================
+           JESUS TITLE
+        ================================= */
+
+        .digital-card-title {
+            margin: 0;
+
+            font-size: 58px;
+
+            line-height: 1;
+
+            font-weight: 900;
+
+            letter-spacing: 5px;
+        }
+
+
+
+        /* =================================
+           TAGLINE
+        ================================= */
+
+        .digital-card-tagline {
+            margin-top: 13px;
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            color: #f1d477;
+
+            font-weight: 700;
+        }
+
+
+
+        /* =================================
+           PASS LABEL
+        ================================= */
+
+        .digital-card-pass-label {
+            display: inline-block;
+
+            margin-top: 17px;
+
+            padding: 7px 13px;
+
+            border:
+                1px solid
+                rgba(241, 212, 119, 0.55);
+
+            border-radius: 999px;
+
+            color: #f1d477;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+
+
+        /* =================================
+           CARD CONTENT
+        ================================= */
+
+        .digital-card-content {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 50px;
+        }
+
+        .digital-card-details {
+            flex: 1;
+
+            min-width: 0;
+        }
+
+
+
+        /* =================================
+           LABELS
+        ================================= */
+
+        .digital-card-label {
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            color: #f1d477;
+
+            font-weight: 800;
+
+            margin-bottom: 7px;
+        }
+
+
+
+        /* =================================
+           NAME
+        ================================= */
+
+        .digital-card-name {
+            font-size: 36px;
+
+            font-weight: 900;
+
+            margin-bottom: 27px;
+
+            line-height: 1.08;
+
+            word-break: break-word;
+        }
+
+
+
+        /* =================================
+           INFORMATION
+        ================================= */
+
+        .digital-card-info {
+            margin-bottom: 18px;
+        }
+
+        .digital-card-info-value {
+            font-size: 16px;
+
+            font-weight: 700;
+
+            line-height: 1.45;
+        }
+
+        .digital-card-code {
+            color: #f1d477;
+
+            letter-spacing: 1.7px;
+
+            font-weight: 900;
+        }
+
+
+
+        /* =================================
+           QR CODE
+        ================================= */
+
+        .digital-card-qr {
+            width: 250px;
+
+            height: 250px;
+
+            flex: 0 0 250px;
+
+            background: #ffffff;
+
+            padding: 15px;
+
+            border-radius: 18px;
+
+            box-sizing: border-box;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            box-shadow:
+                0 15px 35px
+                rgba(0, 0, 0, 0.22);
+        }
+
+        .digital-card-qr img {
+            width: 220px;
+
+            height: 220px;
+
+            display: block;
+        }
+
+        .digital-card-qr canvas {
+            width: 220px;
+
+            height: 220px;
+
+            display: block;
+        }
+
+        .digital-card-qr-caption {
+            text-align: center;
+
+            margin-top: 9px;
+
+            font-size: 8px;
+
+            color: #ffffff;
+
+            letter-spacing: 1.3px;
+
+            font-weight: 800;
+        }
+
+
+
+        /* =================================
+           FOOTER
+        ================================= */
+
+        .digital-card-bottom {
+            margin-top: 30px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid
+                rgba(255, 255, 255, 0.18);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            font-size: 11px;
+
+            line-height: 1.5;
+
+            opacity: 0.88;
+        }
+
+        .digital-card-bottom strong {
+            color: #f1d477;
+        }
+
+
+
+        /* =================================
+           MOBILE
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            #qrcode {
+                padding: 10px;
+            }
+
+            #qrcode img,
+            #qrcode canvas {
+                max-width: 100%;
+
+                height: auto !important;
+            }
+
+            .success-card {
+                padding-left: 18px;
+
+                padding-right: 18px;
+            }
+
+            .registration-code-value {
+                font-size: 15px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+    <div class="container">
+
+        <div class="card success-card">
+
+
+
+            <!-- CONFERENCE HEADER -->
+
+            <div class="conference-header">
+
+                <p class="meeting-name">
+                    CAVE CAMP MEETING 2026
+                </p>
+
+                <p class="theme-line">
+                    ONE NAME. ONE FOCUS. JESUS.
+                </p>
+
+            </div>
+
+
+
+            <!-- SUCCESS MESSAGE -->
+
+            <div class="success-message">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <h2>
+                    REGISTRATION SUCCESSFUL
+                </h2>
+
+                <p>
+                    Your registration has been confirmed.
+                </p>
+
+            </div>
+
+
+
+            <!-- ATTENDEE INFORMATION -->
+
+            <div id="attendeeDetails"></div>
+
+
+
+            <!-- QR CODE -->
+
+            <div class="qr-section">
+
+                <p class="qr-title">
+                    YOUR CONFERENCE QR CODE
+                </p>
+
+                <div id="qrcode"></div>
+
+                <p class="qr-instruction">
+                    Please save or screenshot this QR code
+                    and present it at the conference check-in.
+                </p>
+
+            </div>
+
+
+
+            <!-- REGISTER ANOTHER -->
+
+            <button onclick="window.location.href='index.htm'">
+                REGISTER ANOTHER ATTENDEE
+            </button>
+
+
+
+            <p class="footer-brand">
+                CAVE ADULLAM • CAVE CAMP MEETING • JESUS 2026
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================
+         DIGITAL REGISTRATION CARD
+    ================================== -->
+
+    <div id="registrationCard">
+
+        <div class="digital-card-inner">
+
+
+
+            <!-- CARD HEADER -->
+
+            <div class="digital-card-top">
+
+                <div class="digital-card-meeting">
+                    CAVE CAMP MEETING 2026
+                </div>
+
+                <h1 class="digital-card-title">
+                    JESUS
+                </h1>
+
+                <div class="digital-card-tagline">
+                    ONE NAME. ONE FOCUS. JESUS.
+                </div>
+
+                <div class="digital-card-pass-label">
+                    OFFICIAL ATTENDEE PASS
+                </div>
+
+            </div>
+
+
+
+            <!-- CARD MAIN CONTENT -->
+
+            <div class="digital-card-content">
+
+
+
+                <!-- ATTENDEE DETAILS -->
+
+                <div class="digital-card-details">
+
+                    <div class="digital-card-label">
+                        REGISTERED ATTENDEE
+                    </div>
+
+                    <div
+                        class="digital-card-name"
+                        id="cardName"
+                    >
+                        —
+                    </div>
+
+                    <div class="digital-card-info">
+
+                        <div class="digital-card-label">
+                            REGISTRATION CODE
+                        </div>
+
+                        <div
+                            class="digital-card-info-value digital-card-code"
+                            id="cardCode"
+                        >
+                            —
+                        </div>
+
+                    </div>
+
+                    <div class="digital-card-info">
+
+                        <div class="digital-card-label">
+                            DATE
+                        </div>
+
+                        <div class="digital-card-info-value">
+                            10 – 13 DECEMBER 2026
+                        </div>
+
+                    </div>
+
+                    <div class="digital-card-info">
+
+                        <div class="digital-card-label">
+                            VENUE
+                        </div>
+
+                        <div class="digital-card-info-value">
+
+                            Oshoffa Miracle Fortress
+
+                            <br>
+
+                            Abule Oke, Ifo, Ogun State, Nigeria
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- QR -->
+
+                <div>
+
+                    <div class="digital-card-qr">
+
+                        <img
+                            id="cardQR"
+                            src=""
+                            alt="JESUS QR Code"
+                        >
+
+                    </div>
+
+                    <div class="digital-card-qr-caption">
+                        SCAN FOR CONFERENCE CHECK-IN
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CARD FOOTER -->
+
+            <div class="digital-card-bottom">
+
+                <div>
+                    Present this digital registration card
+                    at conference check-in.
+                </div>
+
+                <div>
+
+                    <strong>
+                        JESUS
+                    </strong>
+
+                    <br>
+
+                    ONE NAME. ONE FOCUS. JESUS.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================
+         QR CODE LIBRARY
+    ================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+
+    <!-- =================================
+         HTML2CANVAS
+    ================================== -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+
+    <!-- =================================
+         SUPABASE
+    ================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+    <script>
+
+        /* =================================
+           SUPABASE CONFIGURATION
+        ================================= */
+
+        const SUPABASE_URL =
+            "https://ntaqcoquusuocqkebone.supabase.co";
+
+        const SUPABASE_KEY =
+            "sb_publishable_eD7-93qTTDZFlzIY9OpxwQ_6F9nMwfJ";
+
+
+
+        const supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
+            );
+
+
+
+        /* =================================
+           GET REGISTRATION CODE FROM URL
+        ================================= */
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        const registrationCode =
+            params.get("code");
+
+
+
+        /* =================================
+           GET QR IMAGE DATA
+        ================================= */
+
+        function getQRDataURL() {
+
+            const qrContainer =
+                document.getElementById("qrcode");
+
+            if (!qrContainer) {
+                return null;
+            }
+
+
+
+            /*
+             * QRCode.js normally creates an IMG
+             */
+
+            const qrImage =
+                qrContainer.querySelector("img");
+
+            if (
+                qrImage &&
+                qrImage.src
+            ) {
+
+                return qrImage.src;
+
+            }
+
+
+
+            /*
+             * Some versions can create a CANVAS
+             */
+
+            const qrCanvas =
+                qrContainer.querySelector("canvas");
+
+            if (qrCanvas) {
+
+                try {
+
+                    return qrCanvas.toDataURL(
+                        "image/png"
+                    );
+
+                } catch (error) {
+
+                    console.error(
+                        "Could not read QR canvas:",
+                        error
+                    );
+
+                }
+
+            }
+
+            return null;
+        }
+
+
+
+        /* =================================
+           WAIT FOR QR
+        ================================= */
+
+        function waitForQR() {
+
+            return new Promise(
+                function(resolve) {
+
+                    let attempts = 0;
+
+                    const timer =
+                        setInterval(
+                            function() {
+
+                                const qrData =
+                                    getQRDataURL();
+
+                                if (qrData) {
+
+                                    clearInterval(timer);
+
+                                    resolve(qrData);
+
+                                    return;
+                                }
+
+
+
+                                attempts++;
+
+
+
+                                if (attempts >= 50) {
+
+                                    clearInterval(timer);
+
+                                    resolve(null);
+
+                                }
+
+                            },
+                            100
+                        );
+
+                }
+            );
+
+        }
+
+
+
+        /* =================================
+           LOAD ATTENDEE
+        ================================= */
+
+        async function loadAttendee() {
+
+            console.log(
+                "Loading registration:",
+                registrationCode
+            );
+
+
+
+            if (!registrationCode) {
+
+                document.getElementById(
+                    "attendeeDetails"
+                ).innerHTML = `
+                    <div class="attendee-details">
+                        <p>
+                            <strong>Error:</strong>
+                            No registration code was found in the URL.
+                        </p>
+                    </div>
+                `;
+
+                return;
+            }
+
+
+
+            try {
+
+                const {
+                    data,
+                    error
+                } = await supabaseClient
+
+                    .from("attendees")
+
+                    .select(
+                        "name, email, phone, institution, registration_code"
+                    )
+
+                    .eq(
+                        "registration_code",
+                        registrationCode
+                    )
+
+                    .single();
+
+
+
+                if (error) {
+
+                    console.error(
+                        "Error loading attendee:",
+                        error
+                    );
+
+                    document.getElementById(
+                        "attendeeDetails"
+                    ).innerHTML = `
+                        <div class="attendee-details">
+                            <p>
+                                <strong>
+                                    Unable to load registration.
+                                </strong>
+                            </p>
+
+                            <p>
+                                Registration code:
+                                ${registrationCode}
+                            </p>
+                        </div>
+                    `;
+
+                    return;
+                }
+
+
+
+                if (!data) {
+
+                    console.error(
+                        "No attendee data found."
+                    );
+
+                    return;
+                }
+
+
+
+                /* =================================
+                   DISPLAY ATTENDEE INFORMATION
+                ================================= */
+
+                document
+                    .getElementById(
+                        "attendeeDetails"
+                    )
+                    .innerHTML = `
+
+                        <div class="attendee-details">
+
+                            <p>
+                                <strong>Name:</strong>
+                                ${data.name || "—"}
+                            </p>
+
+                            <p>
+                                <strong>Email:</strong>
+                                ${data.email || "—"}
+                            </p>
+
+                            <p>
+                                <strong>Phone:</strong>
+                                ${data.phone || "—"}
+                            </p>
+
+                            <p>
+                                <strong>Institution:</strong>
+                                ${data.institution || "—"}
+                            </p>
+
+
+
+                            <div class="registration-code-box">
+
+                                <span class="registration-code-label">
+                                    REGISTRATION CODE
+                                </span>
+
+                                <span
+                                    class="registration-code-value"
+                                    id="registrationCodeValue"
+                                >
+                                    ${data.registration_code}
+                                </span>
+
+
+
+                                <button
+                                    type="button"
+                                    class="copy-code-button"
+                                    id="copyCodeButton"
+                                    onclick="copyRegistrationCode()"
+                                >
+                                    COPY CODE
+                                </button>
+
+                            </div>
+
+
+
+                            <button
+                                type="button"
+                                class="download-card-button"
+                                id="downloadCardButton"
+                                onclick="downloadRegistrationCard()"
+                            >
+                                DOWNLOAD REGISTRATION CARD
+                            </button>
+
+                        </div>
+
+                    `;
+
+
+
+                /* =================================
+                   GENERATE MAIN QR CODE
+                ================================= */
+
+                const qrContainer =
+                    document.getElementById(
+                        "qrcode"
+                    );
+
+
+
+                qrContainer.innerHTML = "";
+
+
+
+                new QRCode(
+                    qrContainer,
+                    {
+                        text: data.registration_code,
+
+                        width: 240,
+
+                        height: 240,
+
+                        correctLevel:
+                            QRCode.CorrectLevel.H
+                    }
+                );
+
+
+
+                /* =================================
+                   PUT DATA INTO DIGITAL CARD
+                ================================= */
+
+                document
+                    .getElementById(
+                        "cardName"
+                    )
+                    .textContent =
+                        data.name || "—";
+
+
+
+                document
+                    .getElementById(
+                        "cardCode"
+                    )
+                    .textContent =
+                        data.registration_code || "—";
+
+
+
+                /* =================================
+                   WAIT FOR QR THEN PUT IT ON CARD
+                ================================= */
+
+                const qrData =
+                    await waitForQR();
+
+
+
+                if (qrData) {
+
+                    document
+                        .getElementById(
+                            "cardQR"
+                        )
+                        .src =
+                            qrData;
+
+                    console.log(
+                        "QR successfully placed on digital card."
+                    );
+
+                } else {
+
+                    console.error(
+                        "QR could not be converted to an image."
+                    );
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "LOAD ATTENDEE ERROR:",
+                    error
+                );
+
+
+
+                document.getElementById(
+                    "attendeeDetails"
+                ).innerHTML = `
+                    <div class="attendee-details">
+                        <p>
+                            <strong>
+                                An error occurred while loading your registration.
+                            </strong>
+                        </p>
+                    </div>
+                `;
+
+            }
+
+        }
+
+
+
+        /* =================================
+           COPY REGISTRATION CODE
+        ================================= */
+
+        async function copyRegistrationCode() {
+
+            const codeElement =
+                document.getElementById(
+                    "registrationCodeValue"
+                );
+
+
+
+            const button =
+                document.getElementById(
+                    "copyCodeButton"
+                );
+
+
+
+            if (!codeElement || !button) {
+                return;
+            }
+
+
+
+            const code =
+                codeElement.textContent.trim();
+
+
+
+            try {
+
+                if (
+                    navigator.clipboard &&
+                    window.isSecureContext
+                ) {
+
+                    await navigator.clipboard.writeText(
+                        code
+                    );
+
+                } else {
+
+                    const textArea =
+                        document.createElement(
+                            "textarea"
+                        );
+
+                    textArea.value =
+                        code;
+
+                    textArea.style.position =
+                        "fixed";
+
+                    textArea.style.left =
+                        "-9999px";
+
+                    document.body.appendChild(
+                        textArea
+                    );
+
+                    textArea.focus();
+
+                    textArea.select();
+
+                    document.execCommand(
+                        "copy"
+                    );
+
+                    textArea.remove();
+
+                }
+
+
+
+                button.textContent =
+                    "✓ COPIED!";
+
+                button.classList.add(
+                    "copied"
+                );
+
+
+
+                setTimeout(
+                    function() {
+
+                        button.textContent =
+                            "COPY CODE";
+
+                        button.classList.remove(
+                            "copied"
+                        );
+
+                    },
+                    2000
+                );
+
+
+
+            } catch (error) {
+
+                console.error(
+                    "COPY ERROR:",
+                    error
+                );
+
+                alert(
+                    "Unable to copy the registration code. Please copy it manually."
+                );
+
+            }
+
+        }
+
+
+
+        /* =================================
+           WAIT FOR IMAGES
+        ================================= */
+
+        function waitForImages(element) {
+
+            const images =
+                Array.from(
+                    element.querySelectorAll("img")
+                );
+
+
+
+            return Promise.all(
+
+                images.map(
+                    function(img) {
+
+                        return new Promise(
+                            function(resolve) {
+
+                                if (
+                                    img.complete &&
+                                    img.naturalWidth > 0
+                                ) {
+
+                                    resolve();
+
+                                    return;
+                                }
+
+                                img.onload =
+                                    function() {
+                                        resolve();
+                                    };
+
+                                img.onerror =
+                                    function() {
+
+                                        console.warn(
+                                            "Image failed to load:",
+                                            img.src
+                                        );
+
+                                        resolve();
+
+                                    };
+
+                            }
+                        );
+
+                    }
+                )
+
+            );
+
+        }
+
+
+
+        /* =================================
+           DOWNLOAD DIGITAL CARD
+
+           FILE:// SAFE VERSION
+        ================================= */
+
+        async function downloadRegistrationCard() {
+
+            const button =
+                document.getElementById(
+                    "downloadCardButton"
+                );
+
+            const originalCard =
+                document.getElementById(
+                    "registrationCard"
+                );
+
+            const originalQR =
+                document.getElementById(
+                    "cardQR"
+                );
+
+
+
+            if (!button || !originalCard) {
+
+                alert(
+                    "Registration card is not available."
+                );
+
+                return;
+            }
+
+
+
+            if (
+                !originalQR ||
+                !originalQR.src ||
+                originalQR.src === window.location.href
+            ) {
+
+                alert(
+                    "Please wait for the QR code to finish loading."
+                );
+
+                return;
+            }
+
+
+
+            const originalButtonText =
+                button.textContent;
+
+
+
+            button.textContent =
+                "GENERATING CARD...";
+
+            button.disabled =
+                true;
+
+
+
+            let renderHost = null;
+
+
+
+            try {
+
+                console.log(
+                    "Starting digital card generation..."
+                );
+
+
+
+                /* =================================
+                   CREATE RENDER HOST
+                ================================= */
+
+                renderHost =
+                    document.createElement(
+                        "div"
+                    );
+
+
+
+                renderHost.id =
+                    "cardRenderHost";
+
+
+
+                renderHost.style.position =
+                    "fixed";
+
+                renderHost.style.left =
+                    "0";
+
+                renderHost.style.top =
+                    "0";
+
+                renderHost.style.width =
+                    "1000px";
+
+                renderHost.style.minHeight =
+                    "1000px";
+
+                renderHost.style.zIndex =
+                    "999999";
+
+                renderHost.style.opacity =
+                    "0";
+
+                renderHost.style.pointerEvents =
+                    "none";
+
+                renderHost.style.background =
+                    "#02183f";
+
+
+
+                document.body.appendChild(
+                    renderHost
+                );
+
+
+
+                /* =================================
+                   CLONE CARD
+                ================================= */
+
+                const card =
+                    originalCard.cloneNode(
+                        true
+                    );
+
+
+
+                card.id =
+                    "registrationCardExport";
+
+
+
+                card.style.position =
+                    "relative";
+
+                card.style.left =
+                    "0";
+
+                card.style.top =
+                    "0";
+
+                card.style.width =
+                    "1000px";
+
+                card.style.margin =
+                    "0";
+
+                card.style.visibility =
+                    "visible";
+
+                card.style.opacity =
+                    "1";
+
+                card.style.display =
+                    "block";
+
+
+
+                renderHost.appendChild(
+                    card
+                );
+
+
+
+                /* =================================
+                   KEEP THE QR CODE
+                ================================= */
+
+                const clonedQR =
+                    card.querySelector(
+                        "#cardQR"
+                    );
+
+
+
+                if (clonedQR) {
+
+                    clonedQR.src =
+                        originalQR.src;
+
+                }
+
+
+
+                /* =================================
+                   WAIT FOR QR IMAGE
+                ================================= */
+
+                await waitForImages(
+                    card
+                );
+
+
+
+                /* =================================
+                   ALLOW BROWSER TO FINISH LAYOUT
+                ================================= */
+
+                await new Promise(
+                    function(resolve) {
+
+                        requestAnimationFrame(
+                            function() {
+
+                                requestAnimationFrame(
+                                    function() {
+
+                                        resolve();
+
+                                    }
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+
+
+                /* =================================
+                   MAKE RENDER HOST VISIBLE
+                ================================= */
+
+                renderHost.style.opacity =
+                    "1";
+
+
+
+                /* =================================
+                   CAPTURE DIGITAL CARD
+                ================================= */
+
+                console.log(
+                    "Capturing digital card..."
+                );
+
+
+
+                const canvas =
+                    await html2canvas(
+                        card,
+                        {
+
+                            scale: 2,
+
+                            useCORS: false,
+
+                            allowTaint: false,
+
+                            backgroundColor:
+                                "#02183f",
+
+                            logging: false,
+
+                            imageTimeout:
+                                15000,
+
+                            width: 1000,
+
+                            windowWidth: 1000,
+
+                            scrollX: 0,
+
+                            scrollY: 0,
+
+                            removeContainer: true,
+
+                            onclone:
+                                function(
+                                    clonedDocument
+                                ) {
+
+                                    const clonedHost =
+                                        clonedDocument
+                                            .getElementById(
+                                                "cardRenderHost"
+                                            );
+
+
+
+                                    if (
+                                        clonedHost
+                                    ) {
+
+                                        clonedHost.style.opacity =
+                                            "1";
+
+                                        clonedHost.style.zIndex =
+                                            "999999";
+
+                                    }
+
+
+
+                                    const clonedCard =
+                                        clonedDocument
+                                            .getElementById(
+                                                "registrationCardExport"
+                                            );
+
+
+
+                                    if (
+                                        clonedCard
+                                    ) {
+
+                                        clonedCard.style.position =
+                                            "relative";
+
+                                        clonedCard.style.left =
+                                            "0";
+
+                                        clonedCard.style.top =
+                                            "0";
+
+                                        clonedCard.style.width =
+                                            "1000px";
+
+                                        clonedCard.style.visibility =
+                                            "visible";
+
+                                        clonedCard.style.opacity =
+                                            "1";
+
+                                    }
+
+                                }
+
+                        }
+                    );
+
+
+
+                console.log(
+                    "Canvas generated successfully."
+                );
+
+
+
+                /* =================================
+                   CONVERT CANVAS TO PNG
+                ================================= */
+
+                const blob =
+                    await new Promise(
+                        function(resolve, reject) {
+
+                            canvas.toBlob(
+                                function(result) {
+
+                                    if (result) {
+
+                                        resolve(
+                                            result
+                                        );
+
+                                    } else {
+
+                                        reject(
+                                            new Error(
+                                                "Could not create PNG file."
+                                            )
+                                        );
+
+                                    }
+
+                                },
+
+                                "image/png"
+
+                            );
+
+                        }
+                    );
+
+
+
+                /* =================================
+                   DOWNLOAD PNG
+                ================================= */
+
+                const downloadURL =
+                    URL.createObjectURL(
+                        blob
+                    );
+
+
+
+                const downloadLink =
+                    document.createElement(
+                        "a"
+                    );
+
+
+
+                downloadLink.href =
+                    downloadURL;
+
+
+
+                downloadLink.download =
+                    `JESUS-2026-Registration-${registrationCode || "ATTENDEE"}.png`;
+
+
+
+                document.body.appendChild(
+                    downloadLink
+                );
+
+
+
+                downloadLink.click();
+
+
+
+                downloadLink.remove();
+
+
+
+                setTimeout(
+                    function() {
+
+                        URL.revokeObjectURL(
+                            downloadURL
+                        );
+
+                    },
+                    2000
+                );
+
+
+
+                /* =================================
+                   SUCCESS STATE
+                ================================= */
+
+                button.textContent =
+                    "✓ CARD DOWNLOADED!";
+
+                button.classList.add(
+                    "downloaded"
+                );
+
+
+
+                setTimeout(
+                    function() {
+
+                        button.textContent =
+                            "DOWNLOAD REGISTRATION CARD";
+
+                        button.classList.remove(
+                            "downloaded"
+                        );
+
+                        button.disabled =
+                            false;
+
+                    },
+                    2500
+                );
+
+
+
+                console.log(
+                    "Registration card downloaded successfully."
+                );
+
+
+
+            } catch (error) {
+
+                console.error(
+                    "REGISTRATION CARD ERROR:",
+                    error
+                );
+
+
+
+                alert(
+                    "Unable to generate the registration card. Please try again."
+                );
+
+
+
+                button.textContent =
+                    originalButtonText;
+
+                button.disabled =
+                    false;
+
+
+
+            } finally {
+
+                if (renderHost) {
+
+                    renderHost.remove();
+
+                }
+
+            }
+
+        }
+
+
+
+        /* =================================
+           START APPLICATION
+        ================================= */
+
+        loadAttendee();
+
+    </script>
+
+</body>
+
+</html>
